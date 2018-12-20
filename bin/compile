@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ENV_DIR=${3:-}
+BUILD_DIR=$1
 
 git_ssh_key="$(cat $ENV_DIR/GIT_SSH_KEY)"
 git_ssh_host="$(cat $ENV_DIR/GIT_SSH_HOST)"
