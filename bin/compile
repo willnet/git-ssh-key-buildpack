@@ -29,7 +29,7 @@ if [ "$git_ssh_key" != "" ] && [ "$git_ssh_host" != "" ]; then
   # Set up the SSH config file
   echo "Set up the SSH config file"
   echo -e "Host $git_ssh_host\n"\
-          " IdentityFile $BUILD_DIR/.ssh/git_key\n"\
+          " IdentityFile ~/.ssh/git_key\n"\
           " IdentitiesOnly yes\n"\
           " UserKnownHostsFile=/dev/null\n"\
           " StrictHostKeyChecking no"\
