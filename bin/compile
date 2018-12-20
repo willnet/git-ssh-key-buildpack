@@ -11,17 +11,22 @@ if [ "$git_ssh_key" != "" ] && [ "$git_ssh_host" != "" ]; then
 
   # Ensure that we have the SSH directory
   if [ ! -d $BUILD_DIR/.ssh ]; then
+    echo "mkdir -p $BUILD_DIR/.ssh"
     mkdir -p $BUILD_DIR/.ssh
+    echo "chmod 700 $BUILD_DIR/.ssh"
     chmod 700 $BUILD_DIR/.ssh
   fi
 
   # Load the git SSH key into a file
+  echo "Load the git SSH key into a file"
   echo $git_ssh_key | base64 --decode > $BUILD_DIR/.ssh/git_key
 
   # Change the permissions on the file to be read-write for this user
+  echo "chmod 600 $BUILD_DIR/.ssh/git_key"
   chmod 600 $BUILD_DIR/.ssh/git_key
 
   # Set up the SSH config file
+  echo "Set up the SSH config file"
   echo -e "Host $git_ssh_host\n"\
           " IdentityFile $BUILD_DIR/.ssh/git_key\n"\
           " IdentitiesOnly yes\n"\
